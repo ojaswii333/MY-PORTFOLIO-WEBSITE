@@ -162,7 +162,7 @@ export default function Projects() {
                     transition={{ duration: 0.6 }}
                     className="section-label text-center"
                 >
-          // Selected Work
+                    {/* Selected Work */}
                 </motion.p>
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}

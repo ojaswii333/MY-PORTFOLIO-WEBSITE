@@ -4,30 +4,33 @@ import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
+const count = 2000;
+const [initialPositions, initialColors] = (() => {
+    const pos = new Float32Array(count * 3);
+    const col = new Float32Array(count * 3);
+    for (let i = 0; i < count; i++) {
+        const i3 = i * 3;
+        pos[i3] = (Math.random() - 0.5) * 20;
+        pos[i3 + 1] = (Math.random() - 0.5) * 20;
+        pos[i3 + 2] = (Math.random() - 0.5) * 20;
+
+        const t = Math.random();
+        if (t < 0.33) {
+            col[i3] = 0; col[i3 + 1] = 0.94; col[i3 + 2] = 1;
+        } else if (t < 0.66) {
+            col[i3] = 0.66; col[i3 + 1] = 0.33; col[i3 + 2] = 0.97;
+        } else {
+            col[i3] = 0.93; col[i3 + 1] = 0.29; col[i3 + 2] = 0.6;
+        }
+    }
+    return [pos, col];
+})();
+
 function Particles() {
     const meshRef = useRef<THREE.Points>(null);
-    const count = 2000;
 
-    const [positions, colors] = useMemo(() => {
-        const pos = new Float32Array(count * 3);
-        const col = new Float32Array(count * 3);
-        for (let i = 0; i < count; i++) {
-            const i3 = i * 3;
-            pos[i3] = (Math.random() - 0.5) * 20;
-            pos[i3 + 1] = (Math.random() - 0.5) * 20;
-            pos[i3 + 2] = (Math.random() - 0.5) * 20;
-
-            const t = Math.random();
-            if (t < 0.33) {
-                col[i3] = 0; col[i3 + 1] = 0.94; col[i3 + 2] = 1;
-            } else if (t < 0.66) {
-                col[i3] = 0.66; col[i3 + 1] = 0.33; col[i3 + 2] = 0.97;
-            } else {
-                col[i3] = 0.93; col[i3 + 1] = 0.29; col[i3 + 2] = 0.6;
-            }
-        }
-        return [pos, col];
-    }, []);
+    const positions = initialPositions;
+    const colors = initialColors;
 
     useFrame((state) => {
         if (meshRef.current) {
@@ -49,14 +52,12 @@ function Particles() {
                 <bufferAttribute
                     attach="attributes-position"
                     count={count}
-                    array={positions}
-                    itemSize={3}
+                    args={[positions, 3]}
                 />
                 <bufferAttribute
                     attach="attributes-color"
                     count={count}
-                    array={colors}
-                    itemSize={3}
+                    args={[colors, 3]}
                 />
             </bufferGeometry>
             <pointsMaterial

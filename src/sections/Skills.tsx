@@ -46,7 +46,7 @@ export default function Skills() {
                     transition={{ duration: 0.6 }}
                     className="section-label text-center"
                 >
-          // Tech Arsenal
+                    {/* Tech Arsenal */}
                 </motion.p>
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
@@ -69,8 +69,8 @@ export default function Skills() {
                             key={cat}
                             onClick={() => setActiveCategory(cat)}
                             className={`hoverable px-5 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-300 ${activeCategory === cat
-                                    ? 'bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/30'
-                                    : 'text-text-muted border border-white/5 hover:border-white/20 hover:text-white'
+                                ? 'bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/30'
+                                : 'text-text-muted border border-white/5 hover:border-white/20 hover:text-white'
                                 }`}
                         >
                             {cat}

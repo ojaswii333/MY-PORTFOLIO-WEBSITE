@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import dynamic from 'next/dynamic';
 
 import Preloader from '@/components/Preloader';
 import CustomCursor from '@/components/CustomCursor';

@@ -40,7 +40,7 @@ export default function About() {
                             transition={{ duration: 0.6 }}
                             className="section-label"
                         >
-              // About Me
+                            {/* About Me */}
                         </motion.p>
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}

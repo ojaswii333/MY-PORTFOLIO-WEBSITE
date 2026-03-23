@@ -24,7 +24,7 @@ export default function Contact() {
 
             <div className="max-w-5xl mx-auto">
                 <motion.p initial={{ opacity: 0, x: -20 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6 }} className="section-label text-center">
-          // Get In Touch
+                    {/* Get In Touch */}
                 </motion.p>
                 <motion.h2 initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.1 }} className="section-title text-center">
                     Let&apos;s Build Something <span className="gradient-text">Amazing</span>

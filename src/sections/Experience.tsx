@@ -45,7 +45,7 @@ export default function Experience() {
                     transition={{ duration: 0.6 }}
                     className="section-label text-center"
                 >
-          // Career Path
+                    {/* Career Path */}
                 </motion.p>
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
